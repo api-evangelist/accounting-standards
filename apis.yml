@@ -1,12 +1,23 @@
+aid: accounting-standards
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/apis.yml
 name: Accounting Standards
-description: Accounting Standards are the formal rules and guidelines that govern
-  how financial transactions and statements are recorded, reported, and disclosed.
-  They ensure consistency, transparency, and comparability across financial reports,
-  and include frameworks like GAAP and IFRS.
-url: null
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Accounting Standards
-created: '2025'
-modified: '2025'
+  - Accounting Standards
+  - Finance
+  - GAAP
+  - IFRS
+description: >-
+  Accounting Standards are the formal rules and guidelines that govern how
+  financial transactions and statements are recorded, reported, and disclosed.
+  They ensure consistency, transparency, and comparability across financial
+  reports, and include frameworks like GAAP and IFRS.
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
-common: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
