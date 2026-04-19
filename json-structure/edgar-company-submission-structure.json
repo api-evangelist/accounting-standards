@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-structure/edgar-company-submission-structure.json",
+  "name": "EdgarCompanySubmission",
+  "description": "Company entity metadata and recent filing history from the SEC EDGAR Submissions API.",
+  "type": "object",
+  "properties": {
+    "cik": {
+      "description": "Central Index Key \u2014 unique 10-digit identifier assigned by the SEC",
+      "example": "0000320193",
+      "type": "string"
+    },
+    "entityType": {
+      "description": "Type of entity registered with the SEC",
+      "example": "operating",
+      "type": "string"
+    },
+    "sic": {
+      "description": "Standard Industrial Classification code",
+      "example": "3674",
+      "type": "string"
+    },
+    "sicDescription": {
+      "description": "Description of the SIC code industry",
+      "example": "Semiconductors And Related Devices",
+      "type": "string"
+    },
+    "name": {
+      "description": "Current legal name of the entity",
+      "example": "Apple Inc.",
+      "type": "string"
+    },
+    "tickers": {
+      "description": "Stock ticker symbols for the entity",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "AAPL"
+      ],
+      "type": "array"
+    },
+    "exchanges": {
+      "description": "Stock exchanges where the entity is listed",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "Nasdaq"
+      ],
+      "type": "array"
+    },
+    "stateOfIncorporation": {
+      "description": "US state code or country of incorporation",
+      "example": "CA",
+      "type": "string"
+    },
+    "fiscalYearEnd": {
+      "description": "Month and day of fiscal year end (MMDD)",
+      "example": "0928",
+      "pattern": "^[0-9]{4}$",
+      "type": "string"
+    },
+    "website": {
+      "description": "Official website of the entity",
+      "example": "https://www.apple.com",
+      "type": "uri"
+    },
+    "filings": {
+      "description": "Recent filing history",
+      "properties": {
+        "recent": {
+          "type": "object",
+          "description": "Most recent filings metadata arrays",
+          "properties": {
+            "accessionNumber": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "0000320193-25-000001"
+              ]
+            },
+            "filingDate": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              },
+              "example": [
+                "2025-02-01"
+              ]
+            },
+            "form": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "10-K"
+              ]
+            },
+            "primaryDocument": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "aapl-20240928.htm"
+              ]
+            }
+          }
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "cik",
+    "name"
+  ]
+}

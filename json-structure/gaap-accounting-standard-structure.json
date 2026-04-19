@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-structure/gaap-accounting-standard-structure.json",
+  "name": "GaapAccountingStandard",
+  "description": "A US GAAP accounting standard entry from the FASB Accounting Standards Codification, representing a topic, subtopic, or accounting standards update.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "FASB ASC topic or ASU identifier",
+      "example": "ASU 2023-09",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the accounting standard or update",
+      "example": "Income Taxes (Topic 740): Improvements to Income Tax Disclosures",
+      "type": "string"
+    },
+    "topic": {
+      "description": "FASB ASC topic number",
+      "example": "740",
+      "type": "string"
+    },
+    "topicName": {
+      "description": "Name of the ASC topic area",
+      "example": "Income Taxes",
+      "type": "string"
+    },
+    "issuedDate": {
+      "description": "Date the standard or update was issued",
+      "example": "2023-12-14",
+      "type": "date"
+    },
+    "effectiveDate": {
+      "description": "Mandatory effective date for public business entities",
+      "example": "2025-01-01",
+      "type": "date"
+    },
+    "summary": {
+      "description": "Brief description of the standard's purpose and key requirements",
+      "type": "string"
+    },
+    "applicability": {
+      "description": "Entities to which the standard applies",
+      "enum": [
+        "All entities",
+        "Public business entities",
+        "Nonpublic business entities",
+        "Not-for-profit entities"
+      ],
+      "example": "All entities",
+      "type": "string"
+    },
+    "url": {
+      "description": "URL to the standard in the FASB ASC or on fasb.org",
+      "example": "https://www.fasb.org/standards/accounting-standard-updates",
+      "type": "uri"
+    },
+    "relatedTopics": {
+      "description": "Other ASC topic numbers related to this standard",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "946",
+        "948"
+      ],
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "topic",
+    "issuedDate"
+  ]
+}

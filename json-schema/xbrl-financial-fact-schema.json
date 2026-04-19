@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-schema/xbrl-financial-fact-schema.json",
+  "title": "XbrlFinancialFact",
+  "description": "A single XBRL financial fact from an SEC EDGAR filing, representing one tagged data point from a company's financial statements.",
+  "type": "object",
+  "properties": {
+    "cik": {
+      "type": "string",
+      "description": "The SEC Central Index Key (CIK) of the filing entity, zero-padded to 10 digits",
+      "example": "0000320193",
+      "pattern": "^[0-9]{10}$"
+    },
+    "taxonomy": {
+      "type": "string",
+      "description": "The XBRL taxonomy namespace prefix used for this fact",
+      "enum": ["us-gaap", "ifrs-full", "dei", "srt"],
+      "example": "us-gaap"
+    },
+    "concept": {
+      "type": "string",
+      "description": "The XBRL taxonomy element (tag) name for this fact",
+      "example": "Assets"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label for the concept",
+      "example": "Assets"
+    },
+    "description": {
+      "type": "string",
+      "description": "Definition of the taxonomy concept"
+    },
+    "entityName": {
+      "type": "string",
+      "description": "Legal name of the filing entity",
+      "example": "Apple Inc."
+    },
+    "units": {
+      "type": "array",
+      "description": "Array of unit groupings for this fact",
+      "items": {
+        "$ref": "#/$defs/UnitFacts"
+      }
+    }
+  },
+  "required": ["cik", "taxonomy", "concept"],
+  "$defs": {
+    "UnitFacts": {
+      "type": "object",
+      "description": "Facts reported in a specific unit of measure",
+      "properties": {
+        "unit": {
+          "type": "string",
+          "description": "Unit of measure (e.g. USD, shares)",
+          "example": "USD"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Fact"
+          }
+        }
+      },
+      "required": ["unit", "facts"]
+    },
+    "Fact": {
+      "type": "object",
+      "description": "A single data point from a specific filing period",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date",
+          "description": "Start date for period-based facts (e.g. income statement items)",
+          "example": "2024-01-01"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "description": "End date for the reporting period",
+          "example": "2024-12-31"
+        },
+        "val": {
+          "type": "number",
+          "description": "The numeric value of the fact",
+          "example": 364980000000
+        },
+        "accn": {
+          "type": "string",
+          "description": "SEC accession number of the filing containing this fact",
+          "example": "0000320193-25-000001"
+        },
+        "fy": {
+          "type": "integer",
+          "description": "Fiscal year of the filing",
+          "example": 2024
+        },
+        "fp": {
+          "type": "string",
+          "description": "Fiscal period (Q1, Q2, Q3, Q4, FY, H1, H2)",
+          "enum": ["Q1", "Q2", "Q3", "Q4", "FY", "H1", "H2"],
+          "example": "FY"
+        },
+        "form": {
+          "type": "string",
+          "description": "SEC form type for the filing",
+          "example": "10-K"
+        },
+        "filed": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the filing was submitted to SEC EDGAR",
+          "example": "2025-02-01"
+        },
+        "frame": {
+          "type": "string",
+          "description": "XBRL frame identifier for period/concept aggregation",
+          "example": "CY2024Q4I"
+        }
+      },
+      "required": ["end", "val", "form", "filed"]
+    }
+  }
+}

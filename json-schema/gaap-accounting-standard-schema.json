@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-schema/gaap-accounting-standard-schema.json",
+  "title": "GaapAccountingStandard",
+  "description": "A US GAAP accounting standard entry from the FASB Accounting Standards Codification, representing a topic, subtopic, or accounting standards update.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "FASB ASC topic or ASU identifier",
+      "example": "ASU 2023-09"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the accounting standard or update",
+      "example": "Income Taxes (Topic 740): Improvements to Income Tax Disclosures"
+    },
+    "topic": {
+      "type": "string",
+      "description": "FASB ASC topic number",
+      "example": "740"
+    },
+    "topicName": {
+      "type": "string",
+      "description": "Name of the ASC topic area",
+      "example": "Income Taxes"
+    },
+    "issuedDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the standard or update was issued",
+      "example": "2023-12-14"
+    },
+    "effectiveDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Mandatory effective date for public business entities",
+      "example": "2025-01-01"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief description of the standard's purpose and key requirements"
+    },
+    "applicability": {
+      "type": "string",
+      "description": "Entities to which the standard applies",
+      "enum": ["All entities", "Public business entities", "Nonpublic business entities", "Not-for-profit entities"],
+      "example": "All entities"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the standard in the FASB ASC or on fasb.org",
+      "example": "https://www.fasb.org/standards/accounting-standard-updates"
+    },
+    "relatedTopics": {
+      "type": "array",
+      "description": "Other ASC topic numbers related to this standard",
+      "items": {
+        "type": "string"
+      },
+      "example": ["946", "948"]
+    }
+  },
+  "required": ["id", "title", "topic", "issuedDate"]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-structure/xbrl-financial-fact-structure.json",
+  "name": "XbrlFinancialFact",
+  "description": "A single XBRL financial fact from an SEC EDGAR filing, representing one tagged data point from a company's financial statements.",
+  "type": "object",
+  "properties": {
+    "cik": {
+      "description": "The SEC Central Index Key (CIK) of the filing entity, zero-padded to 10 digits",
+      "example": "0000320193",
+      "pattern": "^[0-9]{10}$",
+      "type": "string"
+    },
+    "taxonomy": {
+      "description": "The XBRL taxonomy namespace prefix used for this fact",
+      "enum": [
+        "us-gaap",
+        "ifrs-full",
+        "dei",
+        "srt"
+      ],
+      "example": "us-gaap",
+      "type": "string"
+    },
+    "concept": {
+      "description": "The XBRL taxonomy element (tag) name for this fact",
+      "example": "Assets",
+      "type": "string"
+    },
+    "label": {
+      "description": "Human-readable label for the concept",
+      "example": "Assets",
+      "type": "string"
+    },
+    "description": {
+      "description": "Definition of the taxonomy concept",
+      "type": "string"
+    },
+    "entityName": {
+      "description": "Legal name of the filing entity",
+      "example": "Apple Inc.",
+      "type": "string"
+    },
+    "units": {
+      "description": "Array of unit groupings for this fact",
+      "items": {
+        "$ref": "#/$defs/UnitFacts"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "cik",
+    "taxonomy",
+    "concept"
+  ]
+}

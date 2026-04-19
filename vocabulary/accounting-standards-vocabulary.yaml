@@ -1,0 +1,233 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Accounting Standards
+  description: >-
+    Vocabulary taxonomy for accounting standards including US GAAP, IFRS, XBRL,
+    and the SEC EDGAR financial data APIs. Covers the landscape of financial
+    reporting standards, digital reporting taxonomies, and structured data access.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: US GAAP Financial Reporting Taxonomy 2026
+      namespace: us-gaap
+      version: "2026"
+      baseUrl: https://xbrl.fasb.org/us-gaap/2026/
+      status: active
+    - name: SEC EDGAR XBRL API
+      namespace: edgar-xbrl
+      version: "1.0"
+      baseUrl: https://data.sec.gov/
+      status: active
+    - name: IFRS Accounting Standards
+      namespace: ifrs
+      version: "2026"
+      baseUrl: https://www.ifrs.org/
+      status: active
+    - name: FASB ASC
+      namespace: fasb-asc
+      version: "current"
+      baseUrl: https://asc.fasb.org/
+      status: active
+    - name: XBRL International Specification
+      namespace: xbrl
+      version: "2.1"
+      baseUrl: https://www.xbrl.org/
+      status: active
+
+  resources:
+    - name: Financial Fact
+      description: A single XBRL-tagged data point from a financial statement
+      api: edgar-xbrl
+      actions: [get, list, aggregate]
+    - name: Company Submission
+      description: SEC EDGAR filing entity metadata and filing history
+      api: edgar-xbrl
+      actions: [get, list]
+    - name: Company Concept
+      description: All XBRL disclosures for a specific company and taxonomy concept
+      api: edgar-xbrl
+      actions: [get]
+    - name: XBRL Frame
+      description: Aggregated cross-company data for a concept and period
+      api: edgar-xbrl
+      actions: [get]
+    - name: Accounting Standard
+      description: A GAAP or IFRS rule governing financial statement presentation
+      api: fasb-asc
+      actions: [reference, search, list]
+    - name: Taxonomy Element
+      description: A named element in the XBRL US-GAAP or IFRS taxonomy
+      api: us-gaap
+      actions: [reference, list]
+
+  actions:
+    - verb: get
+      description: Retrieve a specific entity or fact by identifier
+      pattern: read
+      httpMethod: GET
+    - verb: list
+      description: Enumerate financial facts, standards, or entities
+      pattern: read
+      httpMethod: GET
+    - verb: aggregate
+      description: Retrieve cross-company aggregated facts for a concept/period
+      pattern: read
+      httpMethod: GET
+    - verb: reference
+      description: Look up a specific accounting standard, topic, or element
+      pattern: read
+    - verb: search
+      description: Search the codification or EDGAR full-text search
+      pattern: read
+      httpMethod: GET
+
+  schemas:
+    core:
+      - XbrlFinancialFact
+      - EdgarCompanySubmission
+      - GaapAccountingStandard
+    reporting:
+      - UnitFacts
+      - Fact
+
+  parameters:
+    identifiers:
+      - name: cik
+        description: SEC Central Index Key (10-digit zero-padded)
+      - name: concept
+        description: XBRL taxonomy element name
+      - name: taxonomy
+        description: XBRL taxonomy prefix (us-gaap, ifrs-full, dei, srt)
+      - name: accessionNumber
+        description: SEC filing accession number
+    filters:
+      - name: form
+        description: SEC form type (10-K, 10-Q, 8-K, 20-F)
+      - name: fy
+        description: Fiscal year
+      - name: fp
+        description: Fiscal period (Q1, Q2, Q3, Q4, FY)
+    pagination:
+      - name: offset
+        description: Offset for paginated results
+      - name: limit
+        description: Maximum number of results to return
+
+  enums:
+    taxonomies:
+      - us-gaap
+      - ifrs-full
+      - dei
+      - srt
+    fiscalPeriods:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+      - FY
+      - H1
+      - H2
+    formTypes:
+      - 10-K
+      - 10-Q
+      - 8-K
+      - 20-F
+      - 40-F
+      - 6-K
+    applicability:
+      - All entities
+      - Public business entities
+      - Nonpublic business entities
+      - Not-for-profit entities
+
+  authentication:
+    schemes:
+      - type: Header
+        name: User-Agent
+        description: Required for all SEC EDGAR API requests — must identify your application and provide a contact email
+        example: "MyApp/1.0 contact@example.com"
+    notes: SEC EDGAR APIs are free and public but require User-Agent header. Rate limit is 10 requests/second.
+
+capability:
+  workflows:
+    - name: Financial Statement Data Extraction
+      description: >-
+        Retrieving structured XBRL financial statement data from SEC EDGAR for
+        analysis, modeling, or benchmarking
+      apis: [SEC EDGAR XBRL API]
+      personas: [Financial Analyst, Data Engineer, Quant Researcher]
+    - name: Accounting Research
+      description: >-
+        Researching applicable US GAAP or IFRS guidance for a specific
+        transaction, disclosure, or financial reporting question
+      apis: [FASB ASC, IFRS Accounting Standards]
+      personas: [CPA, Controller, CFO]
+    - name: SEC Regulatory Filing Preparation
+      description: >-
+        Tagging financial statements with XBRL taxonomy elements for SEC 10-K,
+        10-Q, or 8-K filings
+      apis: [US GAAP Financial Reporting Taxonomy 2026, SEC EDGAR XBRL API]
+      personas: [Controller, CFO, External Auditor]
+    - name: FinTech Financial Data Integration
+      description: >-
+        Ingesting standardized financial data from EDGAR APIs into investment
+        platforms, valuation models, or credit analysis tools
+      apis: [SEC EDGAR XBRL API]
+      personas: [Data Engineer, Financial Analyst, Platform Developer]
+
+  personas:
+    - id: financial-analyst
+      name: Financial Analyst
+      description: Investment or credit analyst using structured financial data for screening and modeling
+      workflows: [Financial Statement Data Extraction, FinTech Financial Data Integration]
+    - id: cpa
+      name: CPA
+      description: Certified Public Accountant researching GAAP guidance and preparing financial disclosures
+      workflows: [Accounting Research, SEC Regulatory Filing Preparation]
+    - id: controller
+      name: Controller
+      description: Corporate controller responsible for financial reporting and XBRL tagging
+      workflows: [SEC Regulatory Filing Preparation, Accounting Research]
+    - id: data-engineer
+      name: Data Engineer
+      description: Engineer building data pipelines to ingest SEC EDGAR financial data
+      workflows: [Financial Statement Data Extraction, FinTech Financial Data Integration]
+    - id: platform-developer
+      name: Platform Developer
+      description: Developer integrating EDGAR APIs into FinTech products
+      workflows: [FinTech Financial Data Integration]
+
+  domains:
+    - name: US GAAP Financial Reporting
+      description: Standards governing financial statement presentation for US entities
+      standards: [US GAAP, FASB ASC]
+    - name: International Financial Reporting
+      description: Global standards for financial statement presentation
+      standards: [IFRS]
+    - name: Digital Financial Reporting
+      description: XBRL-based structured data formats for machine-readable financial disclosure
+      standards: [XBRL, US GAAP Taxonomy, IFRS Taxonomy]
+    - name: SEC Regulatory Disclosure
+      description: SEC EDGAR filing and disclosure requirements
+      standards: [SEC Regulations, XBRL Tagging Requirements]
+
+crossReference:
+  - resource: Financial Fact
+    operations: [get, list, aggregate]
+    apis: [SEC EDGAR XBRL API]
+    personas: [Financial Analyst, Data Engineer, Platform Developer]
+  - resource: Company Submission
+    operations: [get, list]
+    apis: [SEC EDGAR XBRL API]
+    personas: [Financial Analyst, Data Engineer]
+  - resource: Accounting Standard
+    operations: [reference, search, list]
+    apis: [FASB ASC, IFRS Accounting Standards]
+    personas: [CPA, Controller]
+  - resource: Taxonomy Element
+    operations: [reference, list]
+    apis: [US GAAP Financial Reporting Taxonomy 2026]
+    personas: [Controller, CPA]

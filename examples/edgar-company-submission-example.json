@@ -1,0 +1,32 @@
+{
+  "cik": "0000320193",
+  "entityType": "operating",
+  "sic": "3674",
+  "sicDescription": "Semiconductors And Related Devices",
+  "name": "Apple Inc.",
+  "tickers": [
+    "AAPL"
+  ],
+  "exchanges": [
+    "Nasdaq"
+  ],
+  "stateOfIncorporation": "CA",
+  "fiscalYearEnd": "0928",
+  "website": "https://www.apple.com",
+  "filings": {
+    "recent": {
+      "accessionNumber": [
+        "0000320193-25-000001"
+      ],
+      "filingDate": [
+        "2025-02-01"
+      ],
+      "form": [
+        "10-K"
+      ],
+      "primaryDocument": [
+        "aapl-20240928.htm"
+      ]
+    }
+  }
+}

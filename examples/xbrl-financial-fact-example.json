@@ -1,0 +1,11 @@
+{
+  "cik": "0000320193",
+  "taxonomy": "dei",
+  "concept": "Assets",
+  "label": "Assets",
+  "description": "Accounting standard description.",
+  "entityName": "Apple Inc.",
+  "units": [
+    "example-string"
+  ]
+}

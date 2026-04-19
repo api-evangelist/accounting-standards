@@ -1,0 +1,180 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "acct": "https://xbrl.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "EdgarCompanySubmission": "acct:EdgarCompanySubmission",
+    "GaapAccountingStandard": "acct:GaapAccountingStandard",
+    "XbrlFinancialFact": "acct:XbrlFinancialFact",
+    "accessionNumber": {
+      "@id": "acct:accessionNumber",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "accn": {
+      "@id": "acct:accn",
+      "@type": "xsd:string"
+    },
+    "applicability": {
+      "@id": "acct:applicability",
+      "@type": "xsd:string"
+    },
+    "cik": {
+      "@id": "acct:cik",
+      "@type": "xsd:string"
+    },
+    "concept": {
+      "@id": "acct:concept",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "effectiveDate": {
+      "@id": "acct:effectiveDate",
+      "@type": "xsd:date"
+    },
+    "end": {
+      "@id": "acct:end",
+      "@type": "xsd:date"
+    },
+    "entityName": {
+      "@id": "acct:entityName",
+      "@type": "xsd:string"
+    },
+    "entityType": {
+      "@id": "acct:entityType",
+      "@type": "xsd:string"
+    },
+    "exchanges": {
+      "@id": "acct:exchanges",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "facts": {
+      "@id": "acct:facts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "filed": {
+      "@id": "acct:filed",
+      "@type": "xsd:date"
+    },
+    "filingDate": {
+      "@id": "acct:filingDate",
+      "@container": "@set",
+      "@type": "xsd:date"
+    },
+    "filings": {
+      "@id": "acct:filings",
+      "@type": "xsd:string"
+    },
+    "fiscalYearEnd": {
+      "@id": "acct:fiscalYearEnd",
+      "@type": "xsd:string"
+    },
+    "form": {
+      "@id": "acct:form",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "fp": {
+      "@id": "acct:fp",
+      "@type": "xsd:string"
+    },
+    "frame": {
+      "@id": "acct:frame",
+      "@type": "xsd:string"
+    },
+    "fy": {
+      "@id": "acct:fy",
+      "@type": "xsd:integer"
+    },
+    "id": {
+      "@id": "acct:id",
+      "@type": "xsd:string"
+    },
+    "issuedDate": {
+      "@id": "acct:issuedDate",
+      "@type": "xsd:date"
+    },
+    "label": {
+      "@id": "acct:label",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "primaryDocument": {
+      "@id": "acct:primaryDocument",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "recent": {
+      "@id": "acct:recent",
+      "@type": "xsd:string"
+    },
+    "relatedTopics": {
+      "@id": "acct:relatedTopics",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sic": {
+      "@id": "acct:sic",
+      "@type": "xsd:string"
+    },
+    "sicDescription": {
+      "@id": "acct:sicDescription",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "acct:start",
+      "@type": "xsd:date"
+    },
+    "stateOfIncorporation": {
+      "@id": "acct:stateOfIncorporation",
+      "@type": "xsd:string"
+    },
+    "summary": {
+      "@id": "acct:summary",
+      "@type": "xsd:string"
+    },
+    "taxonomy": {
+      "@id": "acct:taxonomy",
+      "@type": "xsd:string"
+    },
+    "tickers": {
+      "@id": "acct:tickers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "acct:title",
+      "@type": "xsd:string"
+    },
+    "topic": {
+      "@id": "acct:topic",
+      "@type": "xsd:string"
+    },
+    "topicName": {
+      "@id": "acct:topicName",
+      "@type": "xsd:string"
+    },
+    "unit": {
+      "@id": "acct:unit",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "acct:units",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "url": "schema:url",
+    "val": {
+      "@id": "acct:val",
+      "@type": "xsd:decimal"
+    },
+    "website": {
+      "@id": "acct:website",
+      "@type": "@id"
+    }
+  }
+}
