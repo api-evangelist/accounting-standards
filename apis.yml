@@ -222,7 +222,7 @@ common:
         description: >-
           Deloitte's Accounting Research Tool providing access to FASB ASC and
           IFRS standards with interpretive guidance and examples.
-  - type: JSON-LD
+  - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/json-ld/accounting-standards-context.jsonld
     title: Accounting Standards JSON-LD Context
