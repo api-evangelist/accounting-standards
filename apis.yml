@@ -137,6 +137,8 @@ apis:
         url: https://www.xbrl.org/specification/gnl/rec-2003-12-31/gnl-2003-12-31.htm
         title: XBRL 2.1 Specification
 common:
+  - type: DomainSecurity
+    url: security/accounting-standards-domain-security.yml
   - type: Website
     url: https://www.fasb.org/
     title: Financial Accounting Standards Board
