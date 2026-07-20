@@ -2,6 +2,7 @@ aid: accounting-standards
 url: >-
   https://raw.githubusercontent.com/api-evangelist/accounting-standards/refs/heads/main/apis.yml
 name: Accounting Standards
+kind: topic
 type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
