@@ -34,7 +34,7 @@ description: >-
   standards like XBRL enable structured, machine-readable financial filings.
 created: '2025-01-01'
 modified: '2026-04-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - name: US GAAP Financial Reporting Taxonomy 2026
     description: >-
