@@ -161,6 +161,12 @@ apis:
         url: https://www.xbrl.org/specification/gnl/rec-2003-12-31/gnl-2003-12-31.htm
         title: XBRL 2.1 Specification
 common:
+  - type: Plans
+    url: plans/accounting-standards-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/accounting-standards-rate-limits.yml
+  - type: FinOps
+    url: finops/accounting-standards-finops.yml
   - type: DomainSecurity
     url: security/accounting-standards-domain-security.yml
   - type: Website
