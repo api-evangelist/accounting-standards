@@ -1,4 +1,4 @@
-# accounting-standards
+# Accounting Standards
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,9 +64,28 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-## accounting-standards on APIs.io
+Accounting Standards are the formal rules and guidelines that govern how financial transactions and statements are recorded, reported, and disclosed. They ensure consistency, transparency, and comparability across financial reports, and include frameworks like GAAP and IFRS. Digital reporting standards like XBRL enable structured, machine-readable financial filings.
 
-Everything profiled for accounting-standards is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/accounting-standards/](https://apis.io/providers/accounting-standards/)** — or go straight to one of the APIs or properties below.
+**Areas:** Accounting Standards · Finance · GAAP · IFRS · XBRL · Financial Reporting · SEC · FASB
+
+## Accounting Standards on APIs.io
+
+Everything profiled for Accounting Standards is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/accounting-standards/](https://apis.io/providers/accounting-standards/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- US GAAP Financial Reporting Taxonomy 2026 — The 2026 GAAP Financial Reporting Taxonomy (GRT) is the official XBRL taxonomy maintained by FASB for SEC financial filings. It incorporates updates for…
+- SEC EDGAR XBRL API — The SEC EDGAR XBRL APIs provide free, real-time access to structured financial data from public company filings. APIs include company submissions, company…
+- IFRS Accounting Standards — International Financial Reporting Standards (IFRS) are global accounting standards issued by the International Accounting Standards Board (IASB). IFRS…
+- FASB Accounting Standards Codification — The FASB Accounting Standards Codification (ASC) is the single source of authoritative nongovernmental U.S. GAAP. Organized into Topics, Subtopics,…
+- XBRL International Specification — eXtensible Business Reporting Language (XBRL) is an open international standard for digital business reporting maintained by XBRL International. It enables…
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.fasb.org/)
+- [GitHub](https://github.com/xbrl)
 
 ## API Evangelist rating
 
@@ -76,7 +95,7 @@ Not yet rated. See [apis.io/providers/accounting-standards/](https://apis.io/pro
 
 API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for accounting-standards: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Accounting Standards: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
 ## Open an issue
 
